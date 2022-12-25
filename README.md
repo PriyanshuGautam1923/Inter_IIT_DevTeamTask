@@ -2,59 +2,29 @@
 
 ## Setup Instructions
 
-1. Clone this Repository
+1. Clone this repository onto your local system
+2. Ensure that Docker is running on your system
+3. Open your terminal and execute the following command
 
-## Getting Results for task 1
-
-1. For verifying the text block written as below
-
-```python
-For n=10 (For 500 iterations)<nr />
-Time = 0.04 sec <br />
-n=30
-Time = 0.08 sec <br />
-n=50
-Time = 0.22 sec <br />
-n=75
-Time = 0.48 sec <br />
-n=100
-Time = 0.82 sec <br />
-n=150
-Time = 1.83 sec <br />
-n=200
-Time = 3.21 sec
+```console
+docker-compose up
 
 ```
 
-2. Start by changing the TEST_CODE taking it progressively from 30 to 200, alter the following code
+4. Open your Browser and visit the URL http://localhost:8080 to see the website
 
-```python
-TEST_CODE = '''
-recursive_func(np.random.randint(10, size=(200)),1)
-'''
-```
+## Implementation
 
-to
+1. Used nodejs and meilisearch to accomplish the task.
+2. The links are first read from the file saved_links.json and mapped to a new file data.json that contains data compatible to the meilisearch library.
+3. Following the creation, new index named links was made and new documents added to it.
+4. Now whenever the user types anything in the search box a post request is made alongwith the query term.
+5. This term is used to query the index created in the meilisearch database and the results are converted into json and sent as response.
+6. In the frontend the list of links was then used to properly render the content.
 
-```python
-TEST_CODE = '''
-recursive_func(np.random.randint(10, size=(30)),1)
-'''
-```
+## Improvements/Ideas
 
-or some other size in between 30 and 100
+1. To make the user experience better the search term can be highlighted in the responses being shown to the user.
+2. User can be given the option to control the number of results he wants to be rendered by using the settings object in meilisearch.
 
-## Important parameters for Task 2
-
-1. You can define new polynomials for multiplication using arrays A and B as given below
-
-```python
-# The following array represents
-A = [1, 2, 0, 3];
-
-# The following array represents
-B = [5, 0, 0, 0, 7];
-m = len(A);
-n = len(B);
-
-```
+## Deployment Link: -TBD-
